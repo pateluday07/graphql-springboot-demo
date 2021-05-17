@@ -5,12 +5,10 @@ import com.github.pateluday07.graphqlspringbootdemo.entity.Owner;
 import com.github.pateluday07.graphqlspringbootdemo.exception.CustomException;
 import com.github.pateluday07.graphqlspringbootdemo.mapper.OwnerMapper;
 import com.github.pateluday07.graphqlspringbootdemo.repository.OwnerRepository;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.junit.jupiter.api.function.Executable;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
@@ -89,7 +87,7 @@ class OwnerServiceImplUnitTest {
 
     @Test
     @DisplayName("Owner registration throw exception if password length less than default")
-    void register_ThrowException_IfPasswordLengthLessThanDefaultLength(){
+    void register_ThrowException_IfPasswordLengthLessThanDefaultLength() {
         registrationDto.setPassword("1234");
         registrationDto.setConfirmPassword(registrationDto.getPassword());
         CustomException customException = assertThrows(CustomException.class, () -> ownerService.register(registrationDto));
@@ -99,10 +97,10 @@ class OwnerServiceImplUnitTest {
 
     @Test
     @DisplayName("Owner registration shouldn't throw exception if all data is valid")
-    void register_NoException_IfAllDataIsValid(){
+    void register_NoException_IfAllDataIsValid() {
         when(ownerMapper.toEntity(any(RegistrationDto.class))).thenReturn(owner);
         when(ownerRepository.save(any(Owner.class))).thenReturn(owner);
         when(passwordEncoder.encode(anyString())).thenReturn("test");
-        assertDoesNotThrow(()->ownerService.register(registrationDto));
+        assertDoesNotThrow(() -> ownerService.register(registrationDto));
     }
 }
