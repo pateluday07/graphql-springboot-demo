@@ -1,0 +1,13 @@
+type Mutation {
+    #registration mutation
+    registerOwner(owner: RegisterationDto): String!
+
+    #owner mutation
+    updateOwner(owner: UpdateOwnerDto!): Owner!
+    deleteOwnerById(id: ID!): String!
+
+    #car mutation
+    saveCar(car: SaveCarDto!): Car!
+    updateCar(car: UpdateCarDto!): Car!
+    deleteCarById(id: ID!): String
+}

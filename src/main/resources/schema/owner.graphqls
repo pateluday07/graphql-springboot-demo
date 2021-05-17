@@ -1,0 +1,31 @@
+type Owner {
+    id: ID!
+    firstName: String!
+    lastName: String!
+    age: Int!
+    email: String!
+    cars: [OwnerCar]
+}
+
+type CarOwner{
+    id: ID!
+    firstName: String!
+    lastName: String!
+    age: Int!
+}
+
+input RegisterationDto {
+    firstName: String!
+    lastName: String!
+    age: Int!
+    email: String!
+    password: String!
+    confirmPassword: String!
+}
+
+input UpdateOwnerDto {
+    id: ID!,
+    firstName: String!
+    lastName: String!
+    age: Int!
+}

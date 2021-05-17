@@ -1,0 +1,12 @@
+type Query {
+    #login query
+    login(login: LoginRequestDto!): LoginResponseDto!
+
+    #owner queries
+    getOwnerById(id: ID): Owner
+    getOwners: [Owner]
+
+    #car queries
+    getCarById(id: ID): Car
+    getCars: [Car]
+}

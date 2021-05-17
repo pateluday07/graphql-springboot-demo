@@ -1,0 +1,25 @@
+type OwnerCar{
+    id: ID!
+    brand: String!
+    model: String!
+}
+
+type Car{
+    id: ID!
+    brand: String!
+    model: String!
+    owner: CarOwner
+}
+
+input SaveCarDto{
+    brand: String!
+    model: String!
+    ownerId: ID!
+}
+
+input UpdateCarDto{
+    id: ID!
+    brand: String!
+    model: String!
+    ownerId: ID!
+}

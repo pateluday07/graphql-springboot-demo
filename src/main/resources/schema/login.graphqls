@@ -1,0 +1,10 @@
+type LoginResponseDto{
+    tokenPrefix: String!
+    token: String!
+}
+
+input LoginRequestDto{
+    email: String!
+    password: String!
+}
+
