@@ -7,7 +7,6 @@ import com.github.pateluday07.graphqlspringbootdemo.dto.RegistrationDto;
 import com.github.pateluday07.graphqlspringbootdemo.dto.UpdateOwnerDto;
 import com.github.pateluday07.graphqlspringbootdemo.entity.Owner;
 import com.github.pateluday07.graphqlspringbootdemo.exception.CustomException;
-import com.github.pateluday07.graphqlspringbootdemo.mapper.CarMapper;
 import com.github.pateluday07.graphqlspringbootdemo.mapper.OwnerMapper;
 import com.github.pateluday07.graphqlspringbootdemo.repository.OwnerRepository;
 import lombok.RequiredArgsConstructor;
@@ -27,7 +26,6 @@ public class OwnerServiceImpl implements OwnerService {
 
     private final OwnerRepository ownerRepository;
     private final OwnerMapper ownerMapper;
-    private final CarMapper carMapper;
     private final BCryptPasswordEncoder passwordEncoder;
 
     @Override
