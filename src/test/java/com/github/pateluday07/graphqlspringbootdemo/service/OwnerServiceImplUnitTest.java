@@ -90,7 +90,7 @@ class OwnerServiceImplUnitTest {
     }
 
     @Test
-    @DisplayName("Owner registration throws exception when email is invalid")
+    @DisplayName("Owner registration, throws exception, when email is invalid")
     void register_ThrowsException_IfEmailIsInvalid() {
         registrationDto.setEmail("abc");
         CustomException customException = assertThrows(CustomException.class, () -> ownerService.register(registrationDto));
@@ -99,7 +99,7 @@ class OwnerServiceImplUnitTest {
     }
 
     @Test
-    @DisplayName("Owner registration throws exception if email already exists in the system")
+    @DisplayName("Owner registration, throws exception, if email already exists in the system")
     void register_ThrowsException_IfEmailAlreadyExists() {
         when(ownerRepository.existsByEmail(anyString())).thenReturn(true);
         CustomException customException = assertThrows(CustomException.class, () -> ownerService.register(registrationDto));
@@ -108,7 +108,7 @@ class OwnerServiceImplUnitTest {
     }
 
     @Test
-    @DisplayName("Owner registration throws exception if confirm password doesn't match")
+    @DisplayName("Owner registration, throws exception, if confirm password doesn't match")
     void register_ThrowsException_IfConfirmPasswordDoesNotMatch() {
         registrationDto.setConfirmPassword("1");
         CustomException customException = assertThrows(CustomException.class, () -> ownerService.register(registrationDto));
@@ -117,7 +117,7 @@ class OwnerServiceImplUnitTest {
     }
 
     @Test
-    @DisplayName("Owner registration throws exception if password length less than default")
+    @DisplayName("Owner registration, throws exception, if password length less than default")
     void register_ThrowsException_IfPasswordLengthLessThanDefaultLength() {
         registrationDto.setPassword("1234");
         registrationDto.setConfirmPassword(registrationDto.getPassword());
@@ -127,7 +127,7 @@ class OwnerServiceImplUnitTest {
     }
 
     @Test
-    @DisplayName("Owner registration shouldn't throw exception if all data is valid")
+    @DisplayName("Owner registration, shouldn't throw exception, if all data is valid")
     void register_NoException_IfAllDataIsValid() {
         when(ownerMapper.toEntity(any(RegistrationDto.class))).thenReturn(owner);
         when(ownerRepository.save(any(Owner.class))).thenReturn(owner);
@@ -136,7 +136,7 @@ class OwnerServiceImplUnitTest {
     }
 
     @Test
-    @DisplayName("Update owner throws exception if owner not found by id")
+    @DisplayName("Update owner. throws exception, if owner not found by id")
     void update_ThrowsException_IfOwnerNotFound() {
         when(ownerRepository.findById(anyLong())).thenReturn(Optional.empty());
         CustomException customException = assertThrows(CustomException.class, () -> ownerService.update(updateOwnerDto));
@@ -145,7 +145,7 @@ class OwnerServiceImplUnitTest {
     }
 
     @Test
-    @DisplayName("Update owner, no exception if all data valid")
+    @DisplayName("Update owner, no exception, if all data valid")
     void update_NoException_IfAllDataIsValid() {
         when(ownerRepository.findById(anyLong())).thenReturn(Optional.of(owner));
         when(ownerMapper.toEntity(any(UpdateOwnerDto.class))).thenReturn(owner);
@@ -168,7 +168,7 @@ class OwnerServiceImplUnitTest {
     }
 
     @Test
-    @DisplayName("Get owner by car id, throws exception if owner is not found")
+    @DisplayName("Get owner by car id, throws exception, if owner is not found")
     void getByCarId_ThrowsException_IfOwnerNotFoundByCarId() {
         when(ownerRepository.getByCarsId(anyLong())).thenReturn(Optional.empty());
         CustomException customException = assertThrows(CustomException.class, () -> ownerService.getByCarId(1L));
@@ -177,7 +177,7 @@ class OwnerServiceImplUnitTest {
     }
 
     @Test
-    @DisplayName("Get owner by car id, no exception if owner is not found")
+    @DisplayName("Get owner by car id, no exception, if owner is not found")
     void getByCarId_NoException_IfOwnerIsFoundByCarId() {
         when(ownerRepository.getByCarsId(anyLong())).thenReturn(Optional.of(owner));
         when(ownerMapper.toCarOwnerDto(any(Owner.class))).thenReturn(new CarOwnerDto());
