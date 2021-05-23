@@ -1,4 +1,5 @@
 # graphql-springboot-demo
+![Header](src/main/resources/static/graphql-springboot-mysql.png)
 This project demonstrates how to integrate GraphQL with Spring-Boot.
 
 ### Prerequisites
