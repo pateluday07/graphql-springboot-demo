@@ -8,7 +8,7 @@ To run the application you need:
 * JDK 8 or later
 * MySQL
 
-### Running the application locally
+### Run the application locally
 1. Download the zip or clone the Git repository
 2. Config MySQL properties from `src/main/resources/application.yml`
 3. Open the terminal in the root directory and simply run the following command
