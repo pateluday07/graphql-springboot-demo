@@ -1,4 +1,4 @@
-# graphql-springboot-demo
+# graphql-springboot-demo [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/pateluday07/graphql-springboot-demo/blob/master/LICENSE)
 ![Header](src/main/resources/static/graphql-springboot-mysql.png)
 
 This project demonstrates how to integrate GraphQL and build APIs with Spring-Boot.
