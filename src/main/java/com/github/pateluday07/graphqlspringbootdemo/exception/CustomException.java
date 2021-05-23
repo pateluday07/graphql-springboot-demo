@@ -4,6 +4,7 @@ import graphql.ErrorClassification;
 import graphql.GraphQLError;
 import graphql.language.SourceLocation;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -13,8 +14,8 @@ import static com.github.pateluday07.graphqlspringbootdemo.constant.Constants.EX
 
 public class CustomException extends RuntimeException implements GraphQLError {
 
-    private Integer errorCode;
-    private String errorMessage;
+    private final Integer errorCode;
+    private final String errorMessage;
 
     public CustomException(Integer errorCode, String errorMessage) {
         super(errorMessage);
@@ -24,7 +25,7 @@ public class CustomException extends RuntimeException implements GraphQLError {
 
     @Override
     public List<SourceLocation> getLocations() {
-        return null;
+        return Collections.emptyList();
     }
 
     @Override

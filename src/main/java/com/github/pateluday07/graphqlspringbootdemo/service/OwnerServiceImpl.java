@@ -100,7 +100,7 @@ public class OwnerServiceImpl implements OwnerService {
     private void validateRegistrationDto(RegistrationDto registrationDto) {
         if (!EmailValidator.getInstance().isValid(registrationDto.getEmail()))
             throw new CustomException(Constants.BAD_REQUEST_ERROR_CODE, Constants.INVALID_EMAIL_ERROR_MSG);
-        if (ownerRepository.existsByEmail(registrationDto.getEmail()))
+        if (Boolean.TRUE.equals(ownerRepository.existsByEmail(registrationDto.getEmail())))
             throw new CustomException(Constants.BAD_REQUEST_ERROR_CODE, Constants.EMAIL_ALREADY_EXISTS_ERROR_MSG);
         if (!registrationDto.getPassword().equals(registrationDto.getConfirmPassword()))
             throw new CustomException(Constants.BAD_REQUEST_ERROR_CODE, Constants.CONFIRM_PASSWORD_DOES_NOT_MATCH_ERROR_MSG);

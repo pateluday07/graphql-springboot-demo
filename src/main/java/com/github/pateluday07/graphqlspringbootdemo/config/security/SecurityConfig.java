@@ -30,7 +30,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userDetailService);
+        auth
+                .userDetailsService(userDetailService)
+                .passwordEncoder(passwordEncoder());
     }
 
     @Bean
@@ -54,7 +56,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll()
                 .antMatchers("/vendor/**", "/playground")
                 .permitAll()
-                .antMatchers("/*.ico","/altair")
+                .antMatchers("/*.ico", "/altair")
                 .permitAll()
                 .antMatchers("/voyager")
                 .permitAll()
