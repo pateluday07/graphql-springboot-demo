@@ -24,3 +24,7 @@ Access the APIs using
 
 Access the APIs using
 [Altair](http://localhost:8085/altair)
+
+<p align="center">
+  <b>Thank You :)</b>
+</p>
