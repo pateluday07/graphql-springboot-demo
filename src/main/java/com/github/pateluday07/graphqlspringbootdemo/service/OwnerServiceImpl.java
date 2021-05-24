@@ -47,6 +47,7 @@ public class OwnerServiceImpl implements OwnerService {
         Owner owner = ownerMapper.toEntity(updateOwnerDto);
         owner.setEmail(ownerFromDb.getEmail());
         owner.setPassword(ownerFromDb.getPassword());
+        owner.setCars(ownerFromDb.getCars());
         owner = ownerRepository.save(owner);
         log.info("Updated owner: {}", owner);
         return ownerMapper.toDto(owner);
