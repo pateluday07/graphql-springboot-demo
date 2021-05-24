@@ -20,6 +20,9 @@ Take a high-level overview of the application using
 [Voyager](http://localhost:8085/voyager)
 
 Access the APIs using
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/237b8577c269887f2380)
+
+Access the APIs using
 [Playground](http://localhost:8085/playground)
 
 Access the APIs using
